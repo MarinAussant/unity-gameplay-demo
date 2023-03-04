@@ -88,7 +88,7 @@ public class characterPropulse : MonoBehaviour
         Vector2 newGravity = new Vector2(0, (-2 * scriptJump.getJumpHeight()) / (scriptJump.getTimeToJumpApex() * scriptJump.getTimeToJumpApex()));
         rb.gravityScale = (newGravity.y / Physics2D.gravity.y);
         scriptJump.setPropolsing(true);
-        //scriptMovement.setMaxSpeed(propulseForce);
+        //scriptMovement.setMaxSpeed(propulseForc);
         rb.velocity = arrow.transform.right * propulseForce;
         Debug.Log(arrow.transform.right * propulseForce);
 

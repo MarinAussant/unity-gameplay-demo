@@ -15,6 +15,7 @@ public class characterPropulse : MonoBehaviour
 
     private SpriteRenderer arrowRenderer;
     private Rigidbody2D rb;
+    private PolygonCollider2D pc;
 
     private characterJump scriptJump;
     private characterMovement scriptMovement;
@@ -28,6 +29,7 @@ public class characterPropulse : MonoBehaviour
 
         arrowRenderer = arrow.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        pc = GetComponent<PolygonCollider2D>();
 
         scriptJump = GetComponent<characterJump>();
         scriptMovement = GetComponent<characterMovement>();

@@ -10670,9 +10670,9 @@ MonoBehaviour:
   maxAcceleration: 55
   maxDecceleration: 60
   maxTurnSpeed: 60
-  maxAirAcceleration: 55
-  maxAirDeceleration: 60
-  maxAirTurnSpeed: 60
+  maxAirAcceleration: 28
+  maxAirDeceleration: 70
+  maxAirTurnSpeed: 80
   friction: 0
   useAcceleration: 1
   directionX: 0

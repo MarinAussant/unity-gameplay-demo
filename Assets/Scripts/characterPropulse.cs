@@ -19,6 +19,7 @@ public class characterPropulse : MonoBehaviour
 
     private characterJump scriptJump;
     private characterMovement scriptMovement;
+    private onPropulseColilider scriptPropulseCollider;
 
     [Header("Information")]
 
@@ -33,6 +34,7 @@ public class characterPropulse : MonoBehaviour
 
         scriptJump = GetComponent<characterJump>();
         scriptMovement = GetComponent<characterMovement>();
+        scriptPropulseCollider = GetComponent<onPropulseColilider>();
 
     }
 
@@ -57,12 +59,17 @@ public class characterPropulse : MonoBehaviour
 
         }
 
-        if (!isThrowing && !isPropulsing && Input.GetMouseButtonDown(1)){
+        if (!isThrowing && !isPropulsing && Input.GetMouseButtonDown(1) && scriptPropulseCollider.isPropulseTriggering()){
 
             isPropulsing = true;
             Time.timeScale = 0.1f;
             arrowRenderer.enabled = true;
 
+        }
+        else if(isPropulsing && !scriptPropulseCollider.isPropulseTriggering()){
+            isPropulsing = false;
+            Time.timeScale = 1f;
+            arrowRenderer.enabled = false;
         }
 
         if (!isThrowing && isPropulsing && Input.GetMouseButtonUp(1)){
@@ -70,6 +77,8 @@ public class characterPropulse : MonoBehaviour
             isPropulsing = false;
             Time.timeScale = 1f;
             arrowRenderer.enabled = false;
+            Destroy(scriptPropulseCollider.getActualPropulse());
+            scriptPropulseCollider.setIsPropulseTriggering(false);
             Propulsing();
 
         }
